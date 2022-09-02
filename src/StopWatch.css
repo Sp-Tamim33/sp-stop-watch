@@ -17,6 +17,21 @@
     font-size: 40px;
 }
 
+.mainTime {
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+}
+
+.mainTime p {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.buttons {
+    margin-top: -35px;
+}
+
 #mainstopwatch span {
     background: #c7e0f8;
     color: #0776de;
@@ -48,7 +63,7 @@
     background-color: rgb(241, 64, 64);
 }
 
-#mainstopwatch button:last-child {
+#mainstopwatch button:first-child {
     background-color: #20d364;
 }
 

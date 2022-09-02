@@ -41,14 +41,16 @@ const StopWatch = () => {
             <h1 className='heading'>Stop Watch</h1>
             <div id="mainstopwatch">
                 <div className="mainTime">
-                    <span>{hour < 10 ? '0' + hour : hour}</span>
-                    <span>{minute < 10 ? '0' + minute : minute}</span>
-                    <span>{second < 10 ? '0' + second : second}</span>
+                    <div><p>Hour</p> <span>{hour < 10 ? '0' + hour : hour}</span></div>
+                    <div><p>Minutes</p> <span>{minute < 10 ? '0' + minute : minute}</span></div>
+                    <div><p>Seconds</p> <span>{second < 10 ? '0' + second : second}</span></div>
                 </div>
                 <br />
-                <button onClick={() => { setStart(true); setStop(false) }}>Start</button>
-                <button onClick={() => setStop(true)}>Stop</button>
-                <button onClick={reset}>Reset</button>
+                <div className='buttons'>
+                    <button onClick={() => { setStart(true); setStop(false) }}>Start</button>
+                    <button onClick={() => setStop(true)}>Stop</button>
+                    <button onClick={reset}>Reset</button>
+                </div>
             </div>
         </div>
     );
