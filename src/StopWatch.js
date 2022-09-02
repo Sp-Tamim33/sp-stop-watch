@@ -5,12 +5,13 @@ const StopWatch = () => {
     const [second, setSecond] = useState(0);
     const [minute, setMinute] = useState(0);
     const [hour, setHour] = useState(0);
-    const [start, setStart] = useState(false)
+    const [start, setStart] = useState(false);
+    const [stop, setStop] = useState(true);
 
 
     // start
     useEffect(() => {
-        if (start) {
+        if (start && !stop) {
             var timer;
             timer = setInterval(() => {
                 setSecond(second + 1)
@@ -25,9 +26,16 @@ const StopWatch = () => {
             }, 1000)
             return () => clearInterval(timer)
         }
-    }, [start, second, minute, hour])
+    }, [start, second, minute, hour, stop])
 
 
+    // reset
+    const reset = () => {
+        setSecond(0)
+        setMinute(0)
+        setHour(0)
+        setStop(true)
+    }
     return (
         <div>
             <h1 className='heading'>Stop Watch</h1>
@@ -38,9 +46,9 @@ const StopWatch = () => {
                     <span>{second < 10 ? '0' + second : second}</span>
                 </div>
                 <br />
-                <button onClick={() => setStart(true)}>Start</button>
-                <button>Stop</button>
-                <button>Reset</button>
+                <button onClick={() => { setStart(true); setStop(false) }}>Start</button>
+                <button onClick={() => setStop(true)}>Stop</button>
+                <button onClick={reset}>Reset</button>
             </div>
         </div>
     );
